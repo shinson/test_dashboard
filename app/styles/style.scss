@@ -1,0 +1,57 @@
+
+.topSection{
+	margin: 20px auto;
+	height: 40%;
+}
+
+.col-md-10.chartSection{
+	width: 70%;
+}
+
+.buttonSection{
+	float:right;
+}
+
+#columnChart, #stackedChart{
+	width:70%;
+}
+
+
+//Table Styling
+
+table {
+        width: 100%;
+    }
+
+
+thead, tbody, tr, td, th { display: block; }
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+thead th {
+    height: 30px;
+}
+
+tbody {
+    height: 405px;
+    overflow-y: auto;
+}
+
+
+tbody td, thead th {
+    width: 12%;
+    float: left;
+}
+
+.TDwider{
+	width: 16%;
+}
+
+.TDwidest{
+	width: 20%;
+}

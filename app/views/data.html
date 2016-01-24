@@ -1,0 +1,96 @@
+<h1>Stats</h1>
+
+<!-- Chart Section -->
+<div class="container-fluid topSection">
+<div class="col-md-10 chartSection">
+<button type="button" class="btn btn-primary" ng-click="showChart=true;showColor=false;hideChart=true" ng-hide="hideChart">Show Chart</button>
+
+
+
+	<highchart id="columnChart" config="columnChart" ng-show="showChart"></highchart>
+
+	<highchart id="stackedChart" config="stackedChart" ng-show="showColor"></highchart>
+
+
+</div>
+
+<div class="col-md-2 buttonSection">
+
+<button type="button" class="btn btn-primary" ng-click="showChart=false;showColor=false;hideChart=false" ng-show="hideChart">Hide Chart</button>
+<br>
+<button type="button" class="btn btn-primary" ng-click="showChart=false;showColor=true;" ng-show="showChart">Show By Color</button>
+
+</div>	
+
+</div>
+<!-- End Chart Section -->
+<!-- Begin Stat Section -->
+<div class="container-fluid">
+{{here}}
+<div class="col-md-3">
+	<ul class="list-unstyled">
+		<li>Total Users: {{users}}</li>
+		<li>Total Colors: {{dedupeColors}}</li>
+		<li>Percent of Females: {{women}}%</li>
+		<li>Percent of Males: {{men}}%</li>
+	</ul>
+</div>
+<div class="col-md-4">
+	<ul class="list-unstyled">
+	<li>Total users who performed a "signed_up": {{signUp}}	</li>		
+	<li>Total users who performed a "viewed_profile": {{viewProfile}} </li>	
+	<li>Total users who performed a "view_item": {{viewItem}}	</li>		
+	<li>Total users who performed a "purchased_item": {{purchaseItem}} </li>
+	</ul>
+</div>
+<div class="col-md-5">
+	<ul class="list-unstyled">
+	<li>Conversion from Signup -> Purchase: {{rateSignUp2Purchase}}%</li>
+	<li>Conversion from Signup -> Viewed Profile -> Purchase: {{rateSignUp2Profile2Purchase}}%</li>
+	<li>Conversion from Signup -> Viewed Item -> Purchase Item: {{rateSignUp2Item2Purchase}}%</li>
+	</ul>
+</div>
+</div>
+
+<!-- Begin Stat Section -->
+
+<div class="container-fluid">
+	<div class="col-md-10">
+		<input ng-model="search.first_name" Placeholder="Search First Name">	
+	</div>
+	<div class="col-md-2">
+	<button type="button" class="btn btn-primary" ng-click="addRow()">Add Row</button>
+	</div>
+
+	<div class="col-md-12">
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Gender</th>
+			<th>Company Name</th>
+			<th class="TDwider">Job Title </th>
+			<th class="TDwider">Email</th>
+			<th class="TDwidest">ID</th>
+		</tr>
+		<tbody class="dataTable">
+		
+			<tr ng-repeat="x in mainInfo| filter:search">
+				<td>{{x.first_name}}</td>
+				<td>{{x.last_name}}</td>
+				<td>{{x.gender}}</td>
+				<td>{{x.company_name}}</td>
+				<td class="TDwider">{{x.job_title}}</td>
+				<td class="TDwider">{{x.email}}</td>
+				<td class="TDwidest">{{x.id}}</td>
+			</tr>
+		</tbody>
+	</thead>
+	</table>
+	</div>
+
+</div>
+
+
+
